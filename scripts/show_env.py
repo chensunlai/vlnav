@@ -55,7 +55,7 @@ from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
 
 from matterport.config import MatterportImporterCfg
 
-HOUSE_ID = "5q7pvUzZiYa"
+HOUSE_ID = "5LpN3gDmAk7"
 MP3D_ROOT = "matterport_usd"
 
 JETBOT_CONFIG = ArticulationCfg(
@@ -130,9 +130,35 @@ class NewRobotsSceneCfg(InteractiveSceneCfg):
             static_friction=1.0,
             dynamic_friction=1.0,
         ),
-        obj_filepath=os.path.join(MP3D_ROOT, f"{HOUSE_ID}/{HOUSE_ID}.usd"),
+        obj_filepath=os.path.join(MP3D_ROOT, f"{HOUSE_ID}/fixpath.usd"),
         groundplane=False,
     )
+    
+    light = AssetBaseCfg(
+        prim_path="/World/light",
+        spawn=sim_utils.DistantLightCfg(
+            color=(1.0, 1.0, 1.0),
+            intensity=1000.0,
+        ),
+    )
+    disk_1 = AssetBaseCfg(
+        prim_path="/World/disk_1",
+        spawn=sim_utils.DiskLightCfg(
+            color=(1.0, 1.0, 1.0),
+            intensity=10000.0,
+            radius=50.0,
+        ),
+    )
+    disk_2 = AssetBaseCfg(
+        prim_path="/World/disk_2",
+        spawn=sim_utils.DiskLightCfg(
+            color=(1.0, 1.0, 1.0),
+            intensity=10000.0,
+            radius=50.0,
+        ),
+    )
+    disk_1.init_state.pos = (0, 0, 6.2)
+    disk_2.init_state.pos = (-1, 0, 6.2)
     
     # robot
     Jetbot = JETBOT_CONFIG.replace(prim_path="{ENV_REGEX_NS}/Jetbot")
