@@ -42,6 +42,14 @@ parser.add_argument(
     default=1,
     help="Number of samples per pixel per frame.",
 )
+parser.add_argument("--size", type=float, default=1.0, help="Side-length of cuboid")
+parser.add_argument(
+    "--width", type=int, default=1280, help="Width of the viewport and generated images. Defaults to 1280"
+)
+parser.add_argument(
+    "--height", type=int, default=720, help="Height of the viewport and generated images. Defaults to 720"
+)
+
 
 # append RSL-RL cli arguments
 cli_args.add_rsl_rl_args(parser)
