@@ -59,12 +59,6 @@ sys.argv = [sys.argv[0]] + hydra_args
 app_launcher = AppLauncher(args_cli)
 simulation_app = app_launcher.app
 
-import carb.settings
-s = carb.settings.get_settings()
-print("default =", s.get_as_string("/persistent/isaac/asset_root/default"))
-print("cloud   =", s.get_as_string("/persistent/isaac/asset_root/cloud"))
-print("nvidia  =", s.get_as_string("/persistent/isaac/asset_root/nvidia"))
-
 """Check for minimum supported RSL-RL version."""
 
 import importlib.metadata as metadata
@@ -112,7 +106,7 @@ import isaaclab_tasks  # noqa: F401
 from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
-import vlnav.tasks  # noqa: F401
+# PLACEHOLDER: Extension template (do not remove this comment)
 
 torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.allow_tf32 = True

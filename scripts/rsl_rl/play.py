@@ -56,13 +56,6 @@ if args_cli.video:
 app_launcher = AppLauncher(args_cli)
 simulation_app = app_launcher.app
 
-import carb.settings
-s = carb.settings.get_settings()
-print("default =", s.get_as_string("/persistent/isaac/asset_root/default"))
-print("cloud   =", s.get_as_string("/persistent/isaac/asset_root/cloud"))
-print("nvidia  =", s.get_as_string("/persistent/isaac/asset_root/nvidia"))
-
-
 """Rest everything follows."""
 
 import gymnasium as gym
@@ -82,7 +75,7 @@ from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlVecEnvWrapper, expor
 import isaaclab_tasks  # noqa: F401
 from isaaclab_tasks.utils import get_checkpoint_path, parse_env_cfg
 
-import vlnav.tasks  # noqa: F401
+# PLACEHOLDER: Extension template (do not remove this comment)
 
 
 def main():
