@@ -77,8 +77,8 @@ class MatterportImporter(TerrainImporter):
         self.device = SimulationContext.instance().device
 
         # create a dict of meshes
-        self.meshes = dict()
-        self.warp_meshes = dict()
+        # self.meshes = dict()
+        # self.warp_meshes = dict()
         self.env_origins = None
         self.terrain_origins = None
 

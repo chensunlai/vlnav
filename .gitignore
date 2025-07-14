@@ -13,6 +13,7 @@
 **/*.usda
 **/*.usdc
 **/*.usdz
+**/matterport_usd/*
 
 # Python
 .DS_Store
