@@ -162,7 +162,7 @@ def main():
 
     dt = env.unwrapped.step_dt
     
-    keyboard_interface = Se2Keyboard(v_x_sensitivity = 0.5, v_y_sensitivity = 0.5, omega_z_sensitivity=2)
+    keyboard_interface = Se2Keyboard(v_x_sensitivity = 0.5, v_y_sensitivity = 0.5, omega_z_sensitivity= 2)
     keyboard_interface.reset()
 
     # reset environment
