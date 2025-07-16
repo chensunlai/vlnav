@@ -29,7 +29,6 @@ from prettytable import PrettyTable
 
 import vlnav.tasks  # noqa: F401
 
-
 def main():
     """Print all environments registered in `vlnav` extension."""
     # print all the available environments
