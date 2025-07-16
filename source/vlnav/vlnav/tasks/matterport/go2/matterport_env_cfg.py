@@ -148,13 +148,14 @@ class ObservationsCfg:
         def __post_init__(self):
             self.enable_corruption = True
             self.concatenate_terms = True
-            
+
     @configclass
     class CameraObsCfg(ObsGroup):
         """Observations for camera group."""
         rgb_measurement = ObsTerm(
             func=mdp.isaac_camera_data,
-            params={"sensor_cfg": SceneEntityCfg("rgb_camera"), "data_type": "rgb"},
+            params={"sensor_cfg": SceneEntityCfg(
+                "rgb_camera"), "data_type": "rgb"},
         )
 
         def __post_init__(self):
@@ -166,7 +167,20 @@ class ObservationsCfg:
         """Observations for visualization camera group."""
         rgb_measurement = ObsTerm(
             func=mdp.isaac_camera_data,
-            params={"sensor_cfg": SceneEntityCfg("viz_rgb_camera"), "data_type": "rgb"},
+            params={"sensor_cfg": SceneEntityCfg(
+                "viz_rgb_camera"), "data_type": "rgb"},
+        )
+
+        def __post_init__(self):
+            self.enable_corruption = False
+            self.concatenate_terms = True
+            
+    @configclass
+    class DepthObsCfg(ObsGroup):
+        """Observations for visualization camera group."""
+        depth_measurement = ObsTerm(
+            func=mdp.process_depth_image,
+            params={"sensor_cfg": SceneEntityCfg("rgbd_camera"), "data_type": "distance_to_image_plane"},
         )
 
         def __post_init__(self):
@@ -175,6 +189,9 @@ class ObservationsCfg:
 
     # observation groups
     policy: PolicyCfg = PolicyCfg()
+    camera_obs: CameraObsCfg = CameraObsCfg()
+    viz_camera_obs: VizCameraObsCfg = VizCameraObsCfg()
+    depth_obs: DepthObsCfg = DepthObsCfg()
 
 
 @configclass
@@ -191,6 +208,7 @@ class TerminationsCfg:
         func=mdp.bad_orientation,
         params={"limit_angle": 0.8},
     )
+
 
 @configclass
 class CurriculumCfg:
