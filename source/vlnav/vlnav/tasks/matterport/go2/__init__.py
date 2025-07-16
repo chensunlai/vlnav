@@ -10,47 +10,24 @@ from . import agents
 ##
 # Register Gym environments.
 ##
-
 gym.register(
-    id="Vlnav-Velocity-Flat-Unitree-Go2-v0",
+    id="Vlnav-Velocity-Matterport-Unitree-Go2-v0",
     entry_point="isaaclab.envs:ManagerBasedRLEnv",
     disable_env_checker=True,
     kwargs={
-        "env_cfg_entry_point": f"{__name__}.flat_env_cfg:UnitreeGo2FlatEnvCfg",
-        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:UnitreeGo2FlatPPORunnerCfg",
-        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_flat_ppo_cfg.yaml",
+        "env_cfg_entry_point": f"{__name__}.matterport_env_cfg:UnitreeGo2MatterportEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:UnitreeGo2MatterportPPORunnerCfg",
+        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_matterport_ppo_cfg.yaml",
     },
 )
 
 gym.register(
-    id="Vlnav-Velocity-Flat-Unitree-Go2-Play-v0",
+    id="Vlnav-Velocity-Matterport-Unitree-Go2-Play-v0",
     entry_point="isaaclab.envs:ManagerBasedRLEnv",
     disable_env_checker=True,
     kwargs={
-        "env_cfg_entry_point": f"{__name__}.flat_env_cfg:UnitreeGo2FlatEnvCfg_PLAY",
-        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:UnitreeGo2FlatPPORunnerCfg",
-        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_flat_ppo_cfg.yaml",
-    },
-)
-
-gym.register(
-    id="Vlnav-Velocity-Rough-Unitree-Go2-v0",
-    entry_point="isaaclab.envs:ManagerBasedRLEnv",
-    disable_env_checker=True,
-    kwargs={
-        "env_cfg_entry_point": f"{__name__}.rough_env_cfg:UnitreeGo2RoughEnvCfg",
-        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:UnitreeGo2RoughPPORunnerCfg",
-        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_rough_ppo_cfg.yaml",
-    },
-)
-
-gym.register(
-    id="Vlnav-Velocity-Rough-Unitree-Go2-Play-v0",
-    entry_point="isaaclab.envs:ManagerBasedRLEnv",
-    disable_env_checker=True,
-    kwargs={
-        "env_cfg_entry_point": f"{__name__}.rough_env_cfg:UnitreeGo2RoughEnvCfg_PLAY",
-        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:UnitreeGo2RoughPPORunnerCfg",
-        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_rough_ppo_cfg.yaml",
+        "env_cfg_entry_point": f"{__name__}.matterport_env_cfg:UnitreeGo2MatterportEnvCfg_PLAY",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:UnitreeGo2MatterportPPORunnerCfg",
+        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_matterport_ppo_cfg.yaml",
     },
 )
